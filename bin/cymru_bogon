@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'teamcymru'
+
+c = TeamCymru::Bogon.new
+if ARGV.length > 0
+	ARGV.each do |ipdata|
+		puts ipdata+" "+c.bogon?(ipdata).to_s
+	end
+else
+	$stdin.each_line do |ipdata|
+		puts ipdata.chomp+" "+c.bogon?(ipdata.chomp).to_s
+	end
+end

@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'teamcymru'
+require 'configparser'
+
+config = ConfigParser.new("#{ENV['HOME']}/.teamcymru")
+config = {
+	:consumer_key => config['teamcymru']['consumer_key'],
+	:consumer_secret => config['teamcymru']['consumer_secret'],
+	:oauth_token => config['teamcymru']['oauth_token'],
+	:oauth_token_secret => config['teamcymru']['oauth_token_secret']
+}
+c = TeamCymru::TwitterFeed.new(config)
+c.messages.each do |msg|
+	puts msg[0]
+	puts msg[1]
+	puts
+end

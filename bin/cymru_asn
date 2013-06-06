@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'teamcymru'
+
+c = TeamCymru::ASNClient.new
+if ARGV.length > 0
+	ARGV.each do |ipdata|
+		puts c.lookup(ipdata)
+	end
+else
+	$stdin.each_line do |ipdata|
+		puts c.lookup(ipdata.chomp)
+	end
+end
