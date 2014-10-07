@@ -18,6 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
+	require 'teamcymru'
 	c = TeamCymru::ASNClient.new
 	res = c.lookup("130.207.244.251").to_s => "2637    | 130.207.244.251  | 130.207.0.0/16      | US | arin     | 1988-10-10 |  | GEORGIA-TECH - Georgia Institute of Technology"
 
